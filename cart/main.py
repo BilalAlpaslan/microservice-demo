@@ -1,11 +1,8 @@
-from fastapi import APIRouter, FastAPI
-prefix ="/cart/api"
+from fastapi import FastAPI
 
-app = FastAPI(title="Cart API", description="Cart API", version="0.1", openapi_url=f"{prefix}/openapi.json", docs_url=f"{prefix}/docs")
+app = FastAPI(title="Cart API", description="Cart API", version="0.1", root_path="/cart")
 
-router = APIRouter()
-app.include_router(router, prefix=prefix)
 
-@router.get("/")
+@app.get("/")
 async def root():
     return {'message': 'Hello World From cart'}

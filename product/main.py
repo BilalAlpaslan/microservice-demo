@@ -1,11 +1,8 @@
-from fastapi import APIRouter, FastAPI
-prefix ="/product/api"
+from fastapi import FastAPI
 
-app = FastAPI(title="Product API", description="Product API", version="0.1", openapi_url=f"{prefix}/openapi.json", docs_url=f"{prefix}/docs")
+app = FastAPI(title="Product API", description="Product API", version="0.1", root_path="/product")
 
-router = APIRouter()
-app.include_router(router, prefix=prefix)
 
-@router.get("/")
+@app.get("/")
 async def root():
     return {'message': 'Hello World From product'}
