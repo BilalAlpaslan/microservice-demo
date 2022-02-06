@@ -12,6 +12,9 @@ http:
     event:
       rule: "PathPrefix(`/event`)"
       service: event
+    web:
+      rule: "PathPrefix(`/`)"
+      service: web
 
   services:
     user:
@@ -30,3 +33,7 @@ http:
       loadBalancer:
         servers:
         - url: http://event
+    web:
+      loadBalancer:
+        servers:
+        - url: http://web

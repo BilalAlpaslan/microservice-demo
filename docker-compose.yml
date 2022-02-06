@@ -14,3 +14,5 @@ services:
     build: product
   event:
     build: event
+  web:
+    build: web
