@@ -3,9 +3,6 @@ prefix ="/user"
 
 app = FastAPI(title="User API", description="User API", version="0.1", openapi_url=f"{prefix}/openapi.json", docs_url=f"{prefix}/docs")
 
-router = APIRouter()
-app.include_router(router, prefix=prefix)
-
 users = [
     {
         "username": "user1", "id": 1, "password": "123",
@@ -18,24 +15,24 @@ users = [
 ]
 
 
-@router.get('/user/')
+@app.get('/user/')
 async def get_users():
     return users
 
 
-@router.get('/user/{username}')
+@app.get('/user/{username}')
 async def get_user(username: str):
     user = [user for user in users if user['username'] == username]
     return user[0]
 
 
-@router.post('/user/')
+@app.post('/user/')
 async def create_user(user: dict):
     users.append(user)
     return user
 
 
-@router.put('/user/{username}')
+@app.put('/user/{username}')
 async def update_user(username: str, user: dict):
     for u in users:
         if u['username'] == username:
