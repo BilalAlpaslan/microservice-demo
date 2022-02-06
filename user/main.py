@@ -8,7 +8,7 @@ app.include_router(router, prefix=prefix)
 
 users = [
     {
-        "username": "user1", "id": 1, "password": "123"
+        "username": "user1", "id": 1, "password": "123",
         "name": "User 1", "email": "a@gmail.com", "is_active": True
     },
     {
