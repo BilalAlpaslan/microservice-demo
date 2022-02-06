@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  gateway:
+    build: traefik
+    ports:
+      - "9000:80"
+      - "9090:8080"
+  user:
+    build: user
+  cart:
+    build: cart
+  product:
+    build: product
+  event:
+    build: event

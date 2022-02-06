@@ -1,0 +1,32 @@
+http:
+  routers:
+    user:
+      rule: "PathPrefix(`/user`)"
+      service: user
+    product:
+      rule: "PathPrefix(`/product`)"
+      service: product
+    cart:
+      rule: "PathPrefix(`/cart`)"
+      service: cart
+    event:
+      rule: "PathPrefix(`/event`)"
+      service: event
+
+  services:
+    user:
+      loadBalancer:
+        servers:
+        - url: http://user
+    product:
+      loadBalancer:
+        servers:
+        - url: http://product
+    cart:
+      loadBalancer:
+        servers:
+        - url: http://cart
+    event:
+      loadBalancer:
+        servers:
+        - url: http://event

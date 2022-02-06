@@ -1,0 +1,3 @@
+Fastapi==0.70.0
+uvicorn
+gunicorn

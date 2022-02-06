@@ -1,0 +1,5 @@
+api:
+  insecure: false
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yml
