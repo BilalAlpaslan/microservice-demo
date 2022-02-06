@@ -12,7 +12,7 @@ users = [
         "name": "User 1", "email": "a@gmail.com", "is_active": True
     },
     {
-        "username": "user2", "id": 2, "password": "124"
+        "username": "user2", "id": 2, "password": "124",
         "name": "User 2", "email": "b@gmail.com", "is_active": True
     },
 ]
