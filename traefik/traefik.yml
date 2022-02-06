@@ -1,5 +1,24 @@
 api:
-  insecure: false
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+    # http:
+    #   redirections:
+    #     entryPoint:
+    #       to: "webSecure"
+
+  webSecure:
+    address: ":443"
+
 providers:
   file:
     filename: /etc/traefik/dynamic.yml
+
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      tlsChallenge: {}

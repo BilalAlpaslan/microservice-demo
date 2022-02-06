@@ -4,7 +4,8 @@ services:
   gateway:
     build: traefik
     ports:
-      - "9000:80"
+      - "80:80"
+      - "443:443"
       - "9090:8080"
   user:
     build: user

@@ -1,20 +1,40 @@
 http:
   routers:
     user:
-      rule: "PathPrefix(`/user`)"
+      rule: "Host(`api.example.com`) && PathPrefix(`/user`)"
       service: user
+      tls:
+        certResolver: myresolver
+        domains:
+          - main: api.example.com
     product:
-      rule: "PathPrefix(`/product`)"
+      rule: "Host(`api.example.com`) && PathPrefix(`/product`)"
       service: product
+      tls:
+        certResolver: myresolver
+        domains:
+          - main: api.example.com
     cart:
-      rule: "PathPrefix(`/cart`)"
+      rule: "Host(`api.example.com`) && PathPrefix(`/cart`)"
       service: cart
+      tls:
+        certResolver: myresolver
+        domains:
+          - main: api.example.com
     event:
-      rule: "PathPrefix(`/event`)"
+      rule: "Host(`api.example.com`) && PathPrefix(`/event`)"
       service: event
+      tls:
+        certResolver: myresolver
+        domains:
+          - main: api.example.com
     web:
-      rule: "PathPrefix(`/`)"
+      rule: "Host(`web.example.com`) && PathPrefix(`/`)"
       service: web
+      tls:
+        certResolver: myresolver
+        domains:
+          - main: web.example.com
 
   services:
     user:
